@@ -1,1 +1,15 @@
 /* You can add global styles to this file, and also import other style files */
+body{
+    padding: 15px;
+    background-color: antiquewhite;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+@font-face{
+    font-family: FA-solid;
+    src: url('./assets/fonts/FA/fa-solid-900.ttf');
+}
+@font-face{
+    font-family: FA-regular;
+    src: url('./assets/fonts/FA/fa-regular-400.ttf');
+}

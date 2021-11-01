@@ -1,0 +1,50 @@
+.cocktail-preview {
+  background-color: darken($color: antiquewhite, $amount: 10%);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: 1px solid #ddd;
+  border-radius: 3px;
+  box-shadow: 0px 2px 4px 0px rgb(188 188 188 / 50%);
+  cursor: pointer;
+  div {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    img {
+      border-radius: 3px 0 0 3px;
+      height: 50px;
+    }
+    label {
+      cursor: pointer;
+      flex-grow: 1;
+      transition: 0.2s;
+      // transform: scale(1);
+    }
+  }
+  &:hover {
+    text-shadow: 0 0 1px #333;
+    transition: 0.2s;
+    div label {
+      transform: scale(105%) translateX(2.5%);
+      transition: 0.2s;
+    }
+  }
+  .star {
+    padding-right: 15px;
+    &::before {
+      font-family: "FA-regular";
+      content: "\f005";
+    }
+    transition: 0.2s;
+    &:hover, &.fav {
+      transform: scale(110%) translateX(-5%);
+      transition: 0.2s;
+      color: darkmagenta;
+      &::before {
+        font-family: "FA-solid";
+        content: "\f005";
+      }
+    }
+  }
+}

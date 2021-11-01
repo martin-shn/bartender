@@ -1,0 +1,60 @@
+.cocktail-details{
+    display: flex;
+    gap: 20px;
+    margin: 20px 0;
+    img{
+        max-width: 40%;
+        border-radius: 5%;
+    }
+    .cocktail-info{
+        display: flex;
+        flex-direction: column;
+        .glass{
+            span::before{
+                font-family: FA-solid;
+                content: '\f57b';
+                margin-right: 10px;
+            }
+        }
+        .ing{
+            display: flex;
+            &>span{
+                &::before{
+                font-family: FA-solid;
+                content: '\f72f';
+                margin-right: 10px;
+                }
+                
+            }
+            &>div{
+                flex-grow: 1;
+                display: flex;
+                flex-direction: column;
+                button{
+                    background-color: transparent;
+                    border: 0;
+                    cursor: pointer;
+                    position: absolute;
+                    right: 25px;
+                    &::before{
+                        font-family: FA-solid;
+                        content: '\f217';
+                        font-size: 1rem;
+                    }
+                }
+            }
+        }
+        .inst{
+            margin-top: 20px;
+            display: flex;
+            &>span::before{
+                font-family: FA-regular;
+                content: '\f044';
+                margin-right: 10px;
+            }
+            &>p{
+                margin: 0;
+            }
+        }
+    }
+}

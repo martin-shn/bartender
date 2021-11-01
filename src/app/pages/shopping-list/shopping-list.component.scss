@@ -1,0 +1,5 @@
+.shopping-list{
+    input:checked+span{
+        text-decoration:line-through;
+    }
+}

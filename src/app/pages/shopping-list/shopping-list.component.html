@@ -1,0 +1,9 @@
+<section class="shopping-list">
+    <h1>Shopping List</h1>
+    <ul *ngFor="let cocktail of shoppingList; let idxi = index">
+        <li [routerLink]="['/cocktails', cocktail.id]">{{cocktail.name}}</li>
+        <li *ngFor="let ing of cocktail.ings; let idxj = index"><input type="checkbox" [checked]="ing.isChecked" (click)="onCheckBox($event, cocktail.id, idxi, idxj)"><span> {{ing.ing}}</span></li>
+        <hr>
+    </ul>
+    <button [disabled]="shoppingList.length===0" (click)="updateList()">Update list</button>
+</section>
