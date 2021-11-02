@@ -1,0 +1,16 @@
+.filter {
+  margin-bottom: 15px;
+  input {
+    width: 100%;
+    padding: 5px;
+    background-color: transparent;
+    border: 1px solid #e2d8cc;
+    border-radius: 3px;
+    &:focus-visible{
+        outline: 0;
+    }
+    &:hover, &:focus-visible{
+        background-color: rgb(218, 215, 200);
+    }
+  }
+}
