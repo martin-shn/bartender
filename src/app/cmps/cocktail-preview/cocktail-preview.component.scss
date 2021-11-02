@@ -1,3 +1,5 @@
+@import '../../../styles.scss';
+
 .cocktail-preview {
   background-color: darken($color: antiquewhite, $amount: 10%);
   display: flex;
@@ -31,13 +33,13 @@
     }
   }
   .star {
-    padding: calc((50px - 1rem - 5px) / 2) 15px;
+    padding: calc((50px - 1rem - 9px) / 2) 15px;
     &::before {
       font-family: "FA-regular";
       content: "\f005";
     }
     transition: 0.2s;
-    &:hover,
+    
     &.fav {
       transform: scale(110%) translateX(-5%);
       transition: 0.2s;
@@ -45,6 +47,17 @@
       &::before {
         font-family: "FA-solid";
         content: "\f005";
+      }
+    }
+    @media (min-width: $breakpoint-tablet) {
+      &:hover{
+        transform: scale(110%) translateX(-5%);
+        transition: 0.2s;
+        color: darkmagenta;
+        &::before {
+          font-family: "FA-solid";
+          content: "\f005";
+        }  
       }
     }
   }

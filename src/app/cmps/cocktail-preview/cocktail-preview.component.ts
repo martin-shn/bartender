@@ -16,8 +16,9 @@ export class CocktailPreviewComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  onStar(ev:any, cocktailId:string){
+  onStar(ev:MouseEvent, cocktailId:string){
     ev.stopPropagation()
+    ev.preventDefault()
     const cocktailToUpdate:Cocktail = this.cocktailService.getById(cocktailId)
     cocktailToUpdate.isStar=!cocktailToUpdate.isStar
     this.cocktailService.update(cocktailToUpdate)
