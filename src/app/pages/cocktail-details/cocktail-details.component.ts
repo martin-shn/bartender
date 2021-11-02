@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { CocktailServiceService } from 'src/app/services/cocktail-service.service';
+import { UserMsgService } from 'src/app/services/user-msg.service';
 
 @Component({
   selector: 'cocktail-details',
@@ -19,7 +20,8 @@ export class CocktailDetailsComponent implements OnInit {
     private cocktailService: CocktailServiceService,
     private route: ActivatedRoute,
     private router: Router,
-    private http: HttpClient
+    private http: HttpClient,
+    private userMsgService:UserMsgService
   ) {}
 
   ngOnInit(): void {
@@ -48,5 +50,6 @@ export class CocktailDetailsComponent implements OnInit {
 
   onAddToShopping(){
     this.cocktailService.saveShoppingList({id:this.cocktail.idDrink, name:this.cocktail.strDrink, ings:this.shoppingList})
+    this.userMsgService.setUserMsg('Added to your shopping list successfully')
   }
 }

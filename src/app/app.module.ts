@@ -15,6 +15,8 @@ import { ShoppingListComponent } from './pages/shopping-list/shopping-list.compo
 import { FavsComponent } from './pages/favs/favs.component';
 import { FilterComponent } from './cmps/filter/filter.component';
 import { FormsModule } from '@angular/forms';
+import { IngPreviewComponent } from './cmps/ing-preview/ing-preview.component';
+import { UserMsgComponent } from './cmps/user-msg/user-msg.component';
 
 const appRoutes: Routes = [
   { path: '', redirectTo:'cocktails', pathMatch:'full' },
@@ -37,7 +39,9 @@ const appRoutes: Routes = [
     IngredientPreviewComponent,
     ShoppingListComponent,
     FavsComponent,
-    FilterComponent
+    FilterComponent,
+    IngPreviewComponent,
+    UserMsgComponent
   ],
   imports: [
     RouterModule.forRoot(
