@@ -17,8 +17,6 @@ export class ShoppingListComponent implements OnInit {
 
   ngOnInit(): void {
     this.shoppingList = this.cocktailService.shoppingList
-    console.log(this.shoppingList);
-    
   }
 
   onCheckBox(ev:MouseEvent, listId:string, listIdx:number, ingIdx:number){
