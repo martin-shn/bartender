@@ -10,7 +10,7 @@
       <div>
         <button
           title="Add to shopping list"
-          (click)="onAddToShopping()"
+          (click)="onAddToShopping($event)"
         ></button>
         <ingredient-preview
           *ngFor="let ing of ings"

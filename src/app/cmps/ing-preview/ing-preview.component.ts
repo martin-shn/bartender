@@ -16,11 +16,7 @@ export class IngPreviewComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.userMsgService.userMsg$.subscribe((msg) => {
       clearTimeout(this.timer)
-      if (msg.length) this.msg = {url:msg, isShow:true}
-      else {
-        this.msg.isShow = false
-        this.timer=window.setTimeout(()=>{this.msg.url=''},2000)
-      }
+      if (msg.substr(0,4)==='http') this.msg = {url:msg, isShow:true}
     });
   }
 

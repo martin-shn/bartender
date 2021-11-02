@@ -18,7 +18,6 @@ export class CocktailPreviewComponent implements OnInit {
 
   onStar(ev:any, cocktailId:string){
     ev.stopPropagation()
-    console.log('Star', cocktailId);
     const cocktailToUpdate:Cocktail = this.cocktailService.getById(cocktailId)
     cocktailToUpdate.isStar=!cocktailToUpdate.isStar
     this.cocktailService.update(cocktailToUpdate)

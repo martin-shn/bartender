@@ -9,14 +9,16 @@ import { UserMsgService } from 'src/app/services/user-msg.service';
 })
 export class ShoppingListComponent implements OnInit {
 
-  ings:string[]=[]
-  cocktails:any
+  // ings:string[]=[]
+  // cocktails:any
   shoppingList:any
 
   constructor(private cocktailService:CocktailServiceService, private userMsgService:UserMsgService) { }
 
   ngOnInit(): void {
     this.shoppingList = this.cocktailService.shoppingList
+    console.log(this.shoppingList);
+    
   }
 
   onCheckBox(ev:MouseEvent, listId:string, listIdx:number, ingIdx:number){

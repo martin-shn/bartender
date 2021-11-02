@@ -1,9 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Cocktail } from 'src/app/models/cocktail';
-import { HttpClient } from '@angular/common/http';
 import { CocktailServiceService } from 'src/app/services/cocktail-service.service';
-import { Observable, throwError } from 'rxjs';
-import { UserMsgService } from 'src/app/services/user-msg.service';
 
 @Component({
   selector: 'coctails',

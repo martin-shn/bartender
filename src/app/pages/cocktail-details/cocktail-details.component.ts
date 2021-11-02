@@ -42,8 +42,15 @@ export class CocktailDetailsComponent implements OnInit {
     }
   }
 
-  onAddToShopping(){
-    this.cocktailService.saveShoppingList({id:this.cocktail.idDrink, name:this.cocktail.strDrink, ings:this.shoppingList})
-    this.userMsgService.setUserMsg('Added to your shopping list successfully')
+  onAddToShopping(ev:MouseEvent){
+    ev.stopPropagation()
+    ev.preventDefault()
+
+    if (this.shoppingList.length){
+      this.cocktailService.saveShoppingList({id:this.cocktail.idDrink, name:this.cocktail.strDrink, imgUrl:this.cocktail.strDrinkThumb ,ings:this.shoppingList})
+      this.userMsgService.setUserMsg('Added to your shopping list successfully')
+    }else{
+      this.userMsgService.setUserMsg('Nothing to add...')
+    }
   }
 }

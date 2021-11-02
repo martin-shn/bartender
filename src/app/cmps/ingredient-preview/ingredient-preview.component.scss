@@ -1,15 +1,19 @@
-span{
+span {
+  display: flex;
+  align-items: center;
+  margin: 5px 0;
+  label,
+  input {
+    cursor: pointer;
+  }
+  label {
     display: flex;
     align-items: center;
-    margin: 5px 0;
-    label, input{
-        cursor: pointer;
+    img {
+      height: 2rem;
     }
-    label{
-        display: flex;
-        align-items: center;
-        img{
-            height: 2rem;
-        }
+    &:first-of-type {
+      width: calc(100% - 2.5rem);
     }
+  }
 }

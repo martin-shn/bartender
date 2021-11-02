@@ -3,6 +3,10 @@ body{
     padding: 15px;
     background-color: antiquewhite;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    *::selection{
+        background-color: rgb(250, 191, 115);
+        color: rgb(75, 74, 74);
+    }
 }
 
 [ng-reflect-router-link]{
@@ -10,6 +14,14 @@ body{
     &:hover{
         text-shadow: 0 0 2px #333;
     }
+}
+ul{
+    list-style: none;
+}
+
+[type="checkbox"]{
+    height: 1rem;
+    width: 1rem;
 }
 
 @font-face{

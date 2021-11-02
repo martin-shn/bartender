@@ -1,35 +1,45 @@
-@import '../../../styles.scss';
+@import "../../../styles.scss";
 
-.header{
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  border-bottom: 1px solid #333;
+  padding-bottom: 10px;
+  a {
+    text-decoration: none;
+    color: rgb(156, 72, 23);
+    h1 {
+      font-size: 2rem;
+      margin: 0;
+    }
+  }
+  .main-nav {
     display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-    border-bottom: 1px solid #333;
-    padding-bottom: 10px;
-    h1{
-        font-size: 2rem;
-        margin: 0;
+    align-items: center;
+    gap: 15px;
+    a {
+        filter: grayscale(1);
+      text-decoration: none;
+      color: coral;
+      font-weight: 600;
+      &:hover {
+          filter: none;
+        text-shadow: 0 0 2px #333;
+      }
     }
-    .main-nav{
-        display: flex;
-        align-items: center;
-        gap: 15px;
-        a{
-            text-decoration: none;
-            color: coral;
-            font-weight: 600;
-            &:hover{
-                text-shadow: 0 0 2px #333;
-            }
-        }
+    .active {
+        filter: none;
+      text-shadow: 0 0 2px #333;
     }
-    
-    @media (max-width: $breakpoint-mobile) {
-        .main-nav{
-            gap: 5px;
-            a{
-                font-size: 0.5rem;
-            }
-        }
+  }
+
+  @media (max-width: $breakpoint-mobile) {
+    .main-nav {
+      gap: 5px;
+      a {
+        font-size: 0.5rem;
+      }
     }
+  }
 }

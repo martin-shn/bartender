@@ -1,0 +1,38 @@
+.favs {
+  ul {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    li {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1px 0;
+      div {
+        display: flex;
+        align-items: center;
+        img {
+          margin-inline-end: 15px;
+          width: 50px;
+          border-radius: 5px;
+        }
+      }
+      .star {
+        padding-right: 15px;
+        color: darkmagenta;
+        &::before {
+            font-family: "FA-solid";
+            content: "\f005";
+          }
+        transition: 0.2s;
+        &:hover {
+          transform: scale(110%) translateX(-5%);
+          transition: 0.2s;
+        }
+      }
+      &:hover {
+        background-color: darken($color: antiquewhite, $amount: 5%);
+      }
+    }
+  }
+}
