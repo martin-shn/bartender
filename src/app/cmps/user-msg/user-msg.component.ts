@@ -9,16 +9,16 @@ import { UserMsgService } from 'src/app/services/user-msg.service';
 })
 export class UserMsgComponent implements OnInit, OnDestroy {
 
-  msg:{msg:string, class:string}
+  msg:{msg:string, isShow:boolean}={msg:'',isShow:false}
   subscription:Subscription
 
   constructor(private userMsgService: UserMsgService) { }
 
   ngOnInit(): void {
     this.userMsgService.userMsg$.subscribe((msg) => {
-      if (msg) this.msg = {msg, class:'show'}
+      if (msg.length) this.msg = {msg, isShow:true}
       else {
-        this.msg.class = ''
+        this.msg.isShow = false
         setTimeout(()=>{this.msg.msg=''},2000)
       }
     });

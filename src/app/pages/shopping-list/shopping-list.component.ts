@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CocktailServiceService } from 'src/app/services/cocktail-service.service';
+import { UserMsgService } from 'src/app/services/user-msg.service';
 
 @Component({
   selector: 'shopping-list',
@@ -12,7 +13,7 @@ export class ShoppingListComponent implements OnInit {
   cocktails:any
   shoppingList:any
 
-  constructor(private cocktailService:CocktailServiceService) { }
+  constructor(private cocktailService:CocktailServiceService, private userMsgService:UserMsgService) { }
 
   ngOnInit(): void {
     this.shoppingList = this.cocktailService.shoppingList
@@ -34,5 +35,7 @@ export class ShoppingListComponent implements OnInit {
     this.shoppingList = this.shoppingList.filter((list:any)=>list.ings.length>0)
 
     this.cocktailService.updateShoppingList(this.shoppingList)
+
+    this.userMsgService.setUserMsg('Shopping list updated successfully')
   }
 }
