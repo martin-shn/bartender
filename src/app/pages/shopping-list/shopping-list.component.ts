@@ -15,7 +15,6 @@ export class ShoppingListComponent implements OnInit {
   constructor(private cocktailService:CocktailServiceService) { }
 
   ngOnInit(): void {
-    console.log('shopping list', this.cocktailService.shoppingList);
     this.shoppingList = this.cocktailService.shoppingList
   }
 

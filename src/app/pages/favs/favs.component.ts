@@ -13,8 +13,6 @@ export class FavsComponent implements OnInit {
 
   ngOnInit(): void {
     this.favs = this.cocktailService.cocktails.filter(cocktail=>cocktail.isStar).map(fav=>({id:fav.id, name:fav.name}))
-    console.log(this.favs);
-    
   }
 
 }

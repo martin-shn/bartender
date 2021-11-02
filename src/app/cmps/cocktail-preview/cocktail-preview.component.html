@@ -1,6 +1,6 @@
 <section class="cocktail-preview" [routerLink]="['/cocktails', cocktail.id]">
   <div>
-    <img [src]="cocktail.imgUrl" />
+    <img [src]="cocktail.imgUrl+'/preview'" />
     <label>{{ cocktail.name }}</label>
   </div>
   <span class="star" [class.fav]="cocktail.isStar" (click)="onStar($event, cocktail.id)"></span>

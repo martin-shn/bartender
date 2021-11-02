@@ -34,8 +34,6 @@ export class CocktailDetailsComponent implements OnInit {
           measure: res.drinks[0][`strMeasure${i}`],
         });
       }
-      console.log(this.cocktail);
-      console.log('ings',this.ings);
     });
   }
 
@@ -49,7 +47,6 @@ export class CocktailDetailsComponent implements OnInit {
   }
 
   onAddToShopping(){
-    console.log('Adding to shopping list', this.shoppingList);
     this.cocktailService.saveShoppingList({id:this.cocktail.idDrink, name:this.cocktail.strDrink, ings:this.shoppingList})
   }
 }

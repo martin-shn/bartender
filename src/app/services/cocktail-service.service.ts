@@ -62,8 +62,10 @@ export class CocktailServiceService {
     this._cocktails$.next(this.cocktails)
   }
 
-  saveShoppingList(shoppingList:{}){
-    this.shoppingList.push(shoppingList)
+  saveShoppingList(shoppingList:any){
+    const idx = this.shoppingList.findIndex((list:any)=>list.id===shoppingList.id)
+    if (idx<0) this.shoppingList.push(shoppingList)
+    else this.shoppingList.splice(idx,1,shoppingList)
     localStorage.setItem('cocktailShoppingListDB', JSON.stringify(this.shoppingList));
   }
 

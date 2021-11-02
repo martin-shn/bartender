@@ -1,15 +1,27 @@
 <section class="cocktail-details">
-  <img src="{{ cocktail.strDrinkThumb }}" />
+  <div>
+    <img src="{{ cocktail.strDrinkThumb }}" />
+  </div>
   <div class="cocktail-info">
     <h1>{{ cocktail.strDrink }}</h1>
-    <p class="glass"><span></span>{{cocktail.strGlass}}</p>
+    <p class="glass"><span></span>{{ cocktail.strGlass }}</p>
     <div class="ing">
-        <span></span>
-        <div>
-            <button title="Add to shopping list" (click)="onAddToShopping()"></button>
-            <ingredient-preview *ngFor="let ing of ings" [ing]="ing" (checkBoxClicked)="onCheckBoxClick($event)"></ingredient-preview>
-        </div>
+      <span></span>
+      <div>
+        <button
+          title="Add to shopping list"
+          (click)="onAddToShopping()"
+        ></button>
+        <ingredient-preview
+          *ngFor="let ing of ings"
+          [ing]="ing"
+          (checkBoxClicked)="onCheckBoxClick($event)"
+        ></ingredient-preview>
+      </div>
     </div>
-    <div class="inst"><span></span><p>{{cocktail.strInstructions}}</p></div>
+    <div class="inst">
+      <span></span>
+      <p>{{ cocktail.strInstructions }}</p>
+    </div>
   </div>
 </section>

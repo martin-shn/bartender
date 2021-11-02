@@ -18,7 +18,7 @@ import { FormsModule } from '@angular/forms';
 
 const appRoutes: Routes = [
   { path: '', redirectTo:'cocktails', pathMatch:'full' },
-  { path: 'home', redirectTo:'cocktails' },
+  // { path: 'home', redirectTo:'cocktails' },
   { path: 'cocktails', component: CoctailsComponent },
   { path: 'cocktails/:id', component: CocktailDetailsComponent },
   { path: 'shopping-list', component: ShoppingListComponent },
