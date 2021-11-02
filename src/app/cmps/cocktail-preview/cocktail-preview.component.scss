@@ -31,13 +31,14 @@
     }
   }
   .star {
-    padding-right: 15px;
+    padding: calc((50px - 1rem - 5px) / 2) 15px;
     &::before {
       font-family: "FA-regular";
       content: "\f005";
     }
     transition: 0.2s;
-    &:hover, &.fav {
+    &:hover,
+    &.fav {
       transform: scale(110%) translateX(-5%);
       transition: 0.2s;
       color: darkmagenta;

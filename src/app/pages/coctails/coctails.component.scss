@@ -1,0 +1,22 @@
+.cocktails{
+    .title{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        span{
+            cursor: pointer;
+            padding-right: 0.7rem;
+            &::before{
+                font-family: 'FA-solid';
+                content: '\f055';
+                font-size: 2rem;
+            }
+            transition: .3s;
+            &:hover{
+                text-shadow: 0 0 2px #333;
+                transform: scale(110%);
+                transition: .3s;
+            }
+        }
+    }
+}
