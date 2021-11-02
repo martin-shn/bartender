@@ -1,1 +1,6 @@
-<p>ing-preview works!</p>
+<section class="screen" [class.show]="msg.isShow" (click)="onClose()">
+  <section class="ing-preview" (click)="doNothing($event)">
+      <span (click)="onClose()"></span>
+    <img [src]="msg.url" />
+  </section>
+</section>

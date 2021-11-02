@@ -16,6 +16,7 @@ export class UserMsgComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.userMsgService.userMsg$.subscribe((msg) => {
+      if (msg.substr(0,3)!=='http') return
       if (msg.length) this.msg = {msg, isShow:true}
       else {
         this.msg.isShow = false

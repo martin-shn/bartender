@@ -16,4 +16,8 @@ export class UserMsgService {
       this._userMsg$.next('')
     }, 2000)
   }
+
+  setIngImg(url:string) {
+    this._userMsg$.next(url)
+  }
 }

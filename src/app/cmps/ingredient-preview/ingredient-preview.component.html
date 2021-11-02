@@ -1,7 +1,7 @@
 <span>
     <input type="checkbox" [id]="ing.ing" (click)="checkBoxClicked.emit((ing.measure?ing.measure:'')+' '+ing.ing)"/>
     <label [for]="ing.ing">
-        <img [src]="'http://www.thecocktaildb.com/images/ingredients/'+ing.ing+'-Small.png'"/>
+        <img [src]="'https://www.thecocktaildb.com/images/ingredients/'+ing.ing+'-Small.png'" (click)="onIngClick($event,'https://www.thecocktaildb.com/images/ingredients/'+ing.ing+'.png')"/>
         {{ ing.measure }} {{ ing.ing }}
     </label>
 </span>
