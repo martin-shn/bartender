@@ -17,20 +17,21 @@
     }
     & > div {
       display: flex;
-      // @media (max-width: $breakpoint-mobile) {
-      //     flex-direction: column;
-      // }
       gap: 15px;
+      width: 100%;
       img {
-        width: 100px;
-        // @media (max-width: $breakpoint-mobile) {
-        //     width: unset;
-        // }
+        width: 40%;
+        height: auto;
+        position: relative;
+        left: 0;
+        object-fit: contain;
+        object-position: top;
       }
       & > .ing-list {
         display: flex;
         gap: 10px;
         flex-direction: column;
+        width: 50vw;
         label,
         input {
           cursor: pointer;
@@ -40,8 +41,13 @@
           align-items: center;
           gap: 10px;
           padding: 5px;
+          width: 100%;
+          input{
+            min-width: 1rem;
+          }
           label {
             display: inline-block;
+            flex-grow: 1;
           }
           &:hover {
             background-color: darken($color: antiquewhite, $amount: 5%);
@@ -63,12 +69,12 @@
       box-shadow: 0 0 5px #333;
       text-shadow: 0 0 1px #333;
     }
-    &:disabled{
-        cursor: not-allowed;
-        &:hover{
-            box-shadow: unset;
-            text-shadow: unset;
-        }
+    &:disabled {
+      cursor: not-allowed;
+      &:hover {
+        box-shadow: unset;
+        text-shadow: unset;
+      }
     }
   }
 }
