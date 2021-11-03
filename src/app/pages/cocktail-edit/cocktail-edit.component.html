@@ -1,71 +1,88 @@
-<section *ngIf="cocktail" class="cocktail-edit">
+<section *ngIf="form" class="cocktail-edit">
   <h1>Cocktail edit</h1>
-  <form #form>
+  <form [formGroup]="form">
     <div class="form-container">
       <div class="cocktail-img">
-        <img [src]="cocktail.strDrinkThumb" />
+        <img [src]="imgUrl.valid ? imgUrl.value : cocktail.strDrinkThumb" />
         <input
           type="url"
+          formControlName="imgUrl"
           placeholder="Image URL"
-          [value]="cocktail.strDrinkThumb"
         />
+        <small *ngIf="imgUrl.invalid&&imgUrl.touched">Image URL is required.</small>
       </div>
       <div class="cocktail-info">
         <div>
           <label for="name">Cocktail name:</label>
+          <div class="flex column">
           <input
             id="name"
             type="text"
-            [value]="cocktail.strDrink || ''"
+            formControlName="cocktailName"
             autocomplete="off"
             placeholder="Cocktail name"
           />
+          <small *ngIf="name.invalid&&name.touched">Cocktail name is required. Minimum 3 chars.</small>
+          </div>
         </div>
         <div>
           <label for="glass">Cocktail glass:</label>
+          <div class="flex column">
           <input
             id="glass"
             type="text"
-            [value]="cocktail.strGlass || ''"
+            formControlName="glass"
             autocomplete="off"
             placeholder="Cocktail glass type"
           />
+          <small *ngIf="glass.invalid&&glass.touched">Glass type is required. Minimum 3 chars.</small>
+          </div>
         </div>
         <div>
           <label>Cocktail ingredients:</label>
-          <div>
-            <div *ngFor="let ing of ings; let idx = index">
+          <div formArrayName="ingsList">
+            <div *ngFor="let ing of ingsList.controls; let idx = index" [formGroupName]="idx">
               <input
-                id="{{ 'msr' + idx }}"
-                value="{{ ing.measure }}"
+                id="{{ 'msr' + (idx + 1) }}"
                 type="text"
                 autocomplete="off"
-                placeholder="{{ 'Cocktail measure ' + idx }}"
+                formControlName="measure"
+                placeholder="{{ 'Cocktail measure ' + (idx + 1) }}"
               />
               <input
-                id="{{ 'ing' + idx }}"
-                value="{{ ing.ing }}"
+                id="{{ 'ing' + (idx+1) }}"
                 type="text"
                 autocomplete="off"
-                placeholder="{{ 'Cocktail ingredient ' + idx }}"
+                minlength="3"
+                formControlName="ing"
+                placeholder="{{ 'Cocktail ingredient ' + (idx+1) }}"
+                (input)="dirtyInput($event,'ing')"
               />
             </div>
-            <button (click)="addIngRow()" [disabled]="!isAddRowActive">
+            <small *ngIf="ing.invalid && ing.touched">Ingredient is required. Minimum 3 chars.</small>
+            <!-- !isAddRowActive -->
+            <button (click)="addIngRow()" 
+            [disabled]="!isAddRowActive || ing.invalid"
+            >
               Add ingredient
             </button>
           </div>
         </div>
         <div>
           <label for="ins">Instructions:</label>
+          <div class="flex column">
           <textarea
             id="ins"
             rows="3"
-            [value]="cocktail.strInstructions || ''"
+            formControlName="ins"
             placeholder="Instructions"
           ></textarea>
+          <small *ngIf="ins.invalid&&ins.touched">Instructions are required. Minimum 5 chars.</small>
+        </div>
         </div>
       </div>
     </div>
-    <button [disabled]="form.invalid||form.untouched">Save</button>
+    <button [disabled]="form.invalid" (click)="save()">Save</button>
+    <small *ngIf="isError">Some fields are required but missing.</small>
   </form>
 </section>

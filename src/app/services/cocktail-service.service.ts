@@ -56,8 +56,15 @@ export class CocktailServiceService {
   }
 
   update(cocktail:Cocktail){
-    const idx = this.cocktails.findIndex(currCocktail=>cocktail.id===currCocktail.id)
-    this.cocktails.splice(idx,1,cocktail)
+    if (cocktail.id) {
+      const idx = this.cocktails.findIndex(currCocktail=>cocktail.id===currCocktail.id)
+      cocktail.isStar = this.cocktails[idx].isStar
+      this.cocktails.splice(idx,1,cocktail)
+    } else {
+      cocktail.id=this.makeId()
+      cocktail.isStar = false
+      this.cocktails.unshift(cocktail)
+    }
     localStorage.setItem('cocktailDB', JSON.stringify(this.cocktails));
     this._cocktails$.next(this.cocktails)
   }
@@ -86,4 +93,14 @@ export class CocktailServiceService {
     const filteredCocktails = this.cocktails.filter(cocktail=>cocktail.name.toLowerCase().includes(filter.toLowerCase()))
     this._cocktails$.next(filteredCocktails)
   }
+
+  makeId(length=5) {
+    var result           = '';
+    var characters       = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+    var charactersLength = characters.length;
+    for ( var i = 0; i < length; i++ ) {
+      result += characters.charAt(Math.floor(Math.random() * charactersLength));
+   }
+   return result;
+}
 }

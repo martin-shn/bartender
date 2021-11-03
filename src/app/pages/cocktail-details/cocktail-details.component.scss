@@ -14,6 +14,27 @@
   .cocktail-info {
     display: flex;
     flex-direction: column;
+    flex-grow: 1;
+    &>div:first-of-type{
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      &>a{
+        text-decoration: none;
+        color: $secClr;
+        &>span{
+          &::before{
+            font-family: 'FA-solid';
+            content: '\f044';
+            margin-right: 1ch;
+          }
+          &:hover{
+            color: darken($color: $secClr, $amount: 20%);
+            text-shadow: 0 0 3px #333;
+          }
+        }
+      }
+    }
     .glass {
       color: $mainClr;
       span::before {

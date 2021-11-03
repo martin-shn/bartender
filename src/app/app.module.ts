@@ -14,7 +14,7 @@ import { IngredientPreviewComponent } from './cmps/ingredient-preview/ingredient
 import { ShoppingListComponent } from './pages/shopping-list/shopping-list.component';
 import { FavsComponent } from './pages/favs/favs.component';
 import { FilterComponent } from './cmps/filter/filter.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { IngPreviewComponent } from './cmps/ing-preview/ing-preview.component';
 import { UserMsgComponent } from './cmps/user-msg/user-msg.component';
 import { NaturalTypePipe } from './pipes/natural-type.pipe';
@@ -55,7 +55,8 @@ const appRoutes: Routes = [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -33,8 +33,8 @@ export class CocktailDetailsComponent implements OnInit {
     });
   }
 
-  onCheckBoxClick(ing:{ing:string, measure:string}){
-    const idx = this.shoppingList.findIndex((item:any)=>item.ing===(ing.measure+' '+ing.ing))
+  onCheckBoxClick(ing:{measure:string, ing:string}){
+    const idx = this.shoppingList.findIndex((item:any)=>item.ing.ing===ing.ing&&item.ing.measure===ing.measure)
     if (idx>=0) {
       this.shoppingList.splice(idx,1)
     } else {

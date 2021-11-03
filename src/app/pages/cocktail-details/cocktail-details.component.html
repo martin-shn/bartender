@@ -3,7 +3,10 @@
     <img src="{{ cocktail.strDrinkThumb }}" />
   </div>
   <div class="cocktail-info">
-    <h1>{{ cocktail.strDrink }}</h1>
+    <div>
+      <h1>{{ cocktail.strDrink }}</h1>
+      <a routerLink="edit" routerLinkActive="active"><span title="Edit this cocktail recipe">Edit cocktail</span></a>
+  </div>
     <p class="glass"><span></span>{{ cocktail.strGlass }}</p>
     <div class="ing">
       <span></span>

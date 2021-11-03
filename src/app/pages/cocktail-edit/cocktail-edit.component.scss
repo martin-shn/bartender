@@ -1,4 +1,16 @@
 @import "../../../styles.scss";
+.flex{
+    display: flex;
+}
+.column{
+    flex-direction: column;
+}
+.align{
+    align-items: center;
+}
+.justify{
+    justify-content: center;
+}
 
 .cocktail-edit {
   textarea,
@@ -111,6 +123,7 @@
       }
     }
     &>button{
+        // save btn
         align-self: center;
         padding: 10px;
         background-color: $mainClr;
@@ -123,6 +136,13 @@
         min-width: 20%;
         &:hover{
             text-shadow: 0 0 2px darken($color: $secClr, $amount: 20%);
+        }
+        &:disabled{
+            filter: grayscale(1);
+            &:hover{
+                cursor: not-allowed;
+                text-shadow: none;
+            }
         }
     }
   }
