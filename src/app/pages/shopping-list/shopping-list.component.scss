@@ -1,19 +1,53 @@
 @import "../../../styles.scss";
 
 .shopping-list {
-  input:checked + label {
+  input:checked ~ label {
     text-decoration: line-through;
   }
+  input:checked ~ img {
+    filter: grayscale(1);
+  }
 
+  color: $mainClr;
+  .title{
+    display: flex;
+    align-items: center;
+    h1{
+      flex-grow: 1;
+    }
+    button{
+      transition: width 200ms, color 100ms, text-shadow 100ms;
+      justify-content:center;
+      max-height: 27px;
+      overflow: hidden;
+      &.check{
+        width: 80px;
+      }
+      &.uncheck{
+        width: 100px;
+      }
+      &.hidden{
+        transition: width 200ms, color 100ms, text-shadow 100ms;
+        color: transparent;
+        &:hover{
+          text-shadow:none;
+        }
+      }
+    }
+  }
   & > ul {
     &:not(:last-of-type) {
       padding-bottom: 15px;
-      border-bottom: 1px solid #dedede;
+      border-bottom: 1px dotted lighten($color: $secClr, $amount: 30%);
     }
     padding: 0;
     & > li {
       margin-bottom: 10px;
       font-size: 1.2rem;
+      color: lighten($color: $mainClr, $amount: 20%);
+      &:hover{
+        color: darken($color: $mainClr, $amount: 20%);
+      }
     }
     & > div {
       display: flex;
@@ -44,13 +78,25 @@
           width: 100%;
           input{
             min-width: 1rem;
+            color: $secClr;
+          }
+          img{
+            width: 2rem;
+            cursor: pointer;
+            transition: .2s;
+            &:hover{
+              transition: .2s;
+              transform: scale(128%);
+            }    
           }
           label {
             display: inline-block;
             flex-grow: 1;
           }
           &:hover {
-            background-color: darken($color: antiquewhite, $amount: 5%);
+            background-color: lighten($color: $mainClr, $amount: 25%);
+            color: $secClr;
+            font-weight: 600;
             border-radius: 5px;
           }
         }
@@ -62,7 +108,7 @@
     margin: 30px auto;
     padding: 5px 10px;
     cursor: pointer;
-    background-color: #fcb86d;
+    background-color: $mainClr;
     border: 1px solid #333;
     border-radius: 2px;
     &:hover {

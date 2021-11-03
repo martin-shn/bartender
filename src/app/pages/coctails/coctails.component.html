@@ -1,7 +1,7 @@
 <section class="cocktails">
     <div class="title">
         <h1>Cocktails</h1>
-        <span title="Add your own cocktail recipe"></span>
+        <a routerLink="new/edit" routerLinkActive="active"><span title="Add your own cocktail recipe"></span></a>
     </div> 
     <filter></filter>
     <cocktails-list *ngIf="cocktails" [cocktails]="cocktails"></cocktails-list>

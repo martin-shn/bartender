@@ -1,0 +1,129 @@
+@import "../../../styles.scss";
+
+.cocktail-edit {
+  textarea,
+  input {
+    color: $secClr;
+    font-weight: bold;
+    &::placeholder {
+      font-weight: 400;
+    }
+    &:hover {
+      &::placeholder {
+        color: $secClr;
+        transition: 0.3s;
+      }
+    }
+    &::selection {
+      background-color: lighten($color: $mainClr, $amount: 30%);
+      color: $secClr;
+    }
+    &:focus-visible {
+      outline: 0;
+    }
+  }
+  form {
+    color: $mainClr;
+    display: flex;
+    flex-direction: column;
+    .form-container {
+      display: flex;
+      @media (max-width: $breakpoint-tablet) {
+        flex-direction: column;
+      }
+      gap: 15px;
+      .cocktail-img {
+        display: flex;
+        flex-direction: column;
+        width: 40%;
+        @media (max-width: $breakpoint-tablet) {
+          width: 100%;
+        }
+        input {
+          padding: 5px 10px;
+          margin-top: 10px;
+        }
+      }
+      .cocktail-info {
+        display: flex;
+        flex-direction: column;
+        flex-grow: 1;
+        gap: 15px;
+        & > div {
+          display: flex;
+          align-items: baseline;
+          label {
+            display: inline-block;
+            min-width: 18ch;
+          }
+          input,
+          textarea {
+            flex-grow: 1;
+            font-family: inherit;
+            padding: 5px 10px;
+          }
+          textarea {
+            resize: none;
+          }
+          @media (max-width: $breakpoint-tablet) {
+            flex-direction: column;
+            input,
+            textarea {
+              width: -webkit-fill-available;
+            }
+          }
+          & > div {
+            //   block of rows for ings.
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            & > div {
+              //   each ing row - contains 2 inputs
+              display: flex;
+              @media (max-width: $breakpoint-tablet) {
+                input {
+                  width: 50%;
+                }
+              }
+            }
+            & > button {
+              //   add ing btn
+              margin-top: 15px;
+              margin-bottom: 25px;
+              background-color: $mainClr;
+              color: $secClr;
+              font-weight: bold;
+              border: 0;
+              border-radius: 3px;
+              padding: 10px;
+              transition: 0.3s;
+              &:hover {
+                background-color: darken($color: $mainClr, $amount: 10%);
+                transition: 0.3s;
+              }
+              &:disabled {
+                filter: grayscale(1);
+                cursor: not-allowed;
+              }
+            }
+          }
+        }
+      }
+    }
+    &>button{
+        align-self: center;
+        padding: 10px;
+        background-color: $mainClr;
+        color: $secClr;
+        font-weight: bold;
+        cursor: pointer;
+        margin-top: 50px;
+        border-radius: 3px;
+        border: 1px solid #333;
+        min-width: 20%;
+        &:hover{
+            text-shadow: 0 0 2px darken($color: $secClr, $amount: 20%);
+        }
+    }
+  }
+}

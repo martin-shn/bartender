@@ -1,16 +1,22 @@
+@import '../../../styles.scss';
+
 .filter {
   margin-bottom: 15px;
   input {
     width: 100%;
-    padding: 5px;
+    padding: 10px;
     background-color: transparent;
+    color: $secClr;
     border: 1px solid #e2d8cc;
     border-radius: 3px;
     &:focus-visible{
         outline: 0;
     }
     &:hover, &:focus-visible{
-        background-color: rgb(218, 215, 200);
+        background-color: darken($color: $bgColor, $amount: 5%);
+    }
+    &::placeholder{
+      color: darken($color: $secClr, $amount: 20%);
     }
   }
 }

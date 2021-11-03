@@ -4,11 +4,11 @@
   display: flex;
   justify-content: space-between;
   align-items: baseline;
-  border-bottom: 1px solid #333;
+  border-bottom: 1px solid darken($color: $secClr, $amount: 50%);
   padding-bottom: 10px;
   a {
     text-decoration: none;
-    color: rgb(156, 72, 23);
+    color: $mainClr;
     h1 {
       font-size: 2rem;
       margin: 0;
@@ -19,18 +19,20 @@
     align-items: center;
     gap: 15px;
     a {
-        filter: grayscale(1);
+      filter: grayscale(1);
       text-decoration: none;
-      color: coral;
+      color: darken($color: $mainClr, $amount: 10%);
       font-weight: 600;
       &:hover {
-          filter: none;
+        filter: none;
+        color: darken($color: $secClr, $amount: 10%);
         text-shadow: 0 0 2px #333;
       }
     }
     .active {
-        filter: none;
-      text-shadow: 0 0 2px #333;
+      filter: none;
+      color: darken($color: $mainClr, $amount: 10%);
+      text-shadow: 0 0 2px darken($color: #ccc, $amount: 10%);
     }
   }
 

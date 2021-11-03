@@ -16,7 +16,7 @@ export class CocktailDetailsComponent implements OnInit {
   ings:any=[];
   shoppingList:any=[];
 
-  constructor(private cocktailService: CocktailServiceService, private route: ActivatedRoute, private router: Router, private http: HttpClient, private userMsgService:UserMsgService) {}
+  constructor(private cocktailService: CocktailServiceService, private route: ActivatedRoute, private http: HttpClient, private userMsgService:UserMsgService) {}
 
   ngOnInit(): void {
     this.subscription = this.route.params.subscribe(async (params) => {
@@ -33,8 +33,8 @@ export class CocktailDetailsComponent implements OnInit {
     });
   }
 
-  onCheckBoxClick(ing:string){
-    const idx = this.shoppingList.findIndex((item:any)=>item.ing===ing)
+  onCheckBoxClick(ing:{ing:string, measure:string}){
+    const idx = this.shoppingList.findIndex((item:any)=>item.ing===(ing.measure+' '+ing.ing))
     if (idx>=0) {
       this.shoppingList.splice(idx,1)
     } else {

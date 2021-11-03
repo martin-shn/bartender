@@ -1,0 +1,71 @@
+<section *ngIf="cocktail" class="cocktail-edit">
+  <h1>Cocktail edit</h1>
+  <form #form>
+    <div class="form-container">
+      <div class="cocktail-img">
+        <img [src]="cocktail.strDrinkThumb" />
+        <input
+          type="url"
+          placeholder="Image URL"
+          [value]="cocktail.strDrinkThumb"
+        />
+      </div>
+      <div class="cocktail-info">
+        <div>
+          <label for="name">Cocktail name:</label>
+          <input
+            id="name"
+            type="text"
+            [value]="cocktail.strDrink || ''"
+            autocomplete="off"
+            placeholder="Cocktail name"
+          />
+        </div>
+        <div>
+          <label for="glass">Cocktail glass:</label>
+          <input
+            id="glass"
+            type="text"
+            [value]="cocktail.strGlass || ''"
+            autocomplete="off"
+            placeholder="Cocktail glass type"
+          />
+        </div>
+        <div>
+          <label>Cocktail ingredients:</label>
+          <div>
+            <div *ngFor="let ing of ings; let idx = index">
+              <input
+                id="{{ 'msr' + idx }}"
+                value="{{ ing.measure }}"
+                type="text"
+                autocomplete="off"
+                placeholder="{{ 'Cocktail measure ' + idx }}"
+              />
+              <input
+                id="{{ 'ing' + idx }}"
+                value="{{ ing.ing }}"
+                type="text"
+                autocomplete="off"
+                placeholder="{{ 'Cocktail ingredient ' + idx }}"
+              />
+            </div>
+            <button (click)="addIngRow()" [disabled]="!isAddRowActive">
+              Add ingredient
+            </button>
+          </div>
+        </div>
+        <div>
+          <label for="ins">Instructions:</label>
+          <textarea
+            id="ins"
+            rows="3"
+            [value]="cocktail.strInstructions || ''"
+            placeholder="Instructions"
+          ></textarea>
+        </div>
+      </div>
+    </div>
+    <button [disabled]="form.invalid||form.untouched">Save</button>
+  </form>
+</section>

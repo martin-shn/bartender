@@ -15,7 +15,9 @@
     display: flex;
     flex-direction: column;
     .glass {
+      color: $mainClr;
       span::before {
+        color: darken($color: $mainClr, $amount: 20%);
         font-family: FA-solid;
         content: "\f57b";
         margin-right: 10px;
@@ -23,6 +25,7 @@
     }
     .ing {
       display: flex;
+      color: darken($color: $mainClr, $amount: 20%);
       & > span {
         position: relative;
         top: 0.5rem;
@@ -37,11 +40,13 @@
         display: flex;
         flex-direction: column;
         button {
+          // add to shopping list button
           background-color: transparent;
           border: 0;
           cursor: pointer;
           position: absolute;
           right: 25px;
+          color: $mainClr;
           &::before {
             font-family: FA-solid;
             content: "\f217";
@@ -54,6 +59,7 @@
             text-shadow: 0 0 1px #333;
             transform: rotate(10deg);
             transition: .2s;
+            color: lighten($color: $mainClr, $amount: 20%);
           }
         }
       }
@@ -61,6 +67,7 @@
     .inst {
       margin-top: 20px;
       display: flex;
+      color: darken($color: $mainClr, $amount: 20%);
       & > span::before {
         font-family: FA-regular;
         content: "\f044";
@@ -68,6 +75,7 @@
       }
       & > p {
         margin: 0;
+        color: $mainClr;
       }
     }
   }

@@ -1,7 +1,11 @@
-<span>
-    <input type="checkbox" [id]="ing.ing" (click)="checkBoxClicked.emit((ing.measure?ing.measure:'')+' '+ing.ing)"/>
+<span class="ingredient-preview">
+    <input type="checkbox" [id]="ing.ing" (click)="checkBoxClicked.emit({measure:(ing.measure?ing.measure:''), ing:ing.ing})"/>
     <label [for]="ing.ing">
-        <img [src]="'https://www.thecocktaildb.com/images/ingredients/'+ing.ing+'-Small.png'" (click)="onIngClick($event,'https://www.thecocktaildb.com/images/ingredients/'+ing.ing+'.png')"/>
+        <img 
+            title="Click to enlarge"
+            [src]="'https://www.thecocktaildb.com/images/ingredients/'+ing.ing+'-Small.png'" 
+            (click)="onIngClick($event,'https://www.thecocktaildb.com/images/ingredients/'+ing.ing+'.png')"
+        />
         {{ ing.measure }} {{ ing.ing }}
     </label>
 </span>

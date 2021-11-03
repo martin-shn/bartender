@@ -1,0 +1,7 @@
+@import '../styles.scss';
+
+footer{
+    margin-top: 20px;
+    color: darken($color: $secClr, $amount: 20%);
+    text-align: end;
+}

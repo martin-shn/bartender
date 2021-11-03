@@ -1,5 +1,8 @@
 <section class="shopping-list">
-  <h1>Shopping List</h1>
+  <div class="title">
+    <h1>Shopping List</h1>
+    <button [disabled]="shoppingList.length === 0" class="{{isMarkAll?'uncheck':'check'}}" [class.hidden]="isHidden" (click)="toggleAll()">{{(isMarkAll?'Un-Check':'Check')+' all'}}</button>
+  </div>
   <ul *ngFor="let cocktail of shoppingList; let idxi = index">
     <li [routerLink]="['/cocktails', cocktail.id]">{{ cocktail.name }}</li>
     <div>
@@ -8,16 +11,21 @@
         <li *ngFor="let ing of cocktail.ings; let idxj = index">
           <input
             type="checkbox"
-            [id]="ing.ing"
+            [id]="ing.ing.measure+' '+ing.ing.ing"
             [checked]="ing.isChecked"
             (click)="onCheckBox($event, cocktail.id, idxi, idxj)"
           />
-          <label [for]="ing.ing"> {{ ing.ing }}</label>
+          <img 
+            title="Click to enlarge"
+            [src]="'https://www.thecocktaildb.com/images/ingredients/'+ing.ing.ing+'-Small.png'"
+            (click)="onIngClick($event,'https://www.thecocktaildb.com/images/ingredients/'+ing.ing.ing+'.png')"
+          />
+          <label [for]="ing.ing.measure+' '+ing.ing.ing"> {{ ing.ing.measure+' '+ing.ing.ing }}</label>
         </li>
       </div>
     </div>
   </ul>
-  <button [disabled]="shoppingList.length === 0" (click)="updateList()">
+  <button [disabled]="shoppingList.length === 0 || activateBtn()" (click)="updateList()">
     Update list
   </button>
 </section>

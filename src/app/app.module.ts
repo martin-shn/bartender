@@ -18,12 +18,14 @@ import { FormsModule } from '@angular/forms';
 import { IngPreviewComponent } from './cmps/ing-preview/ing-preview.component';
 import { UserMsgComponent } from './cmps/user-msg/user-msg.component';
 import { NaturalTypePipe } from './pipes/natural-type.pipe';
+import { CocktailEditComponent } from './pages/cocktail-edit/cocktail-edit.component';
 
 const appRoutes: Routes = [
   { path: '', redirectTo:'cocktails', pathMatch:'full' },
   // { path: 'home', redirectTo:'cocktails' },
   { path: 'cocktails', component: CoctailsComponent },
   { path: 'cocktails/:id', component: CocktailDetailsComponent },
+  { path: 'cocktails/:id/edit', component: CocktailEditComponent },
   { path: 'shopping-list', component: ShoppingListComponent },
   { path: 'favs', component: FavsComponent },
   // { path: '**', component: PageNotFoundComponent }
@@ -43,7 +45,8 @@ const appRoutes: Routes = [
     FilterComponent,
     IngPreviewComponent,
     UserMsgComponent,
-    NaturalTypePipe
+    NaturalTypePipe,
+    CocktailEditComponent
   ],
   imports: [
     RouterModule.forRoot(

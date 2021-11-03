@@ -1,16 +1,22 @@
+@import '../../../styles.scss';
+
 .favs {
   ul {
     display: flex;
     flex-direction: column;
     gap: 10px;
+    color: $mainClr;
+    padding-inline-start: 0;
     li {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 1px 0;
+      border-radius: 5px;
       div {
         display: flex;
         align-items: center;
+        position: relative;
+        left: -1px;
         img {
           margin-inline-end: 15px;
           width: 50px;
@@ -20,18 +26,27 @@
       .star {
         padding-right: 15px;
         color: darkmagenta;
+        text-shadow: 0 0 8px $secClr;
         &::before {
             font-family: "FA-solid";
             content: "\f005";
           }
         transition: 0.2s;
         &:hover {
+          text-shadow: none;
           transform: scale(110%) translateX(-5%);
           transition: 0.2s;
         }
       }
+      transition: .1s;
       &:hover {
-        background-color: darken($color: antiquewhite, $amount: 5%);
+        & .star{
+          text-shadow: none;
+        }
+        color: $secClr;
+        font-weight: 600;
+        background-color: lighten($color: $mainClr, $amount: 25%);
+        transition: .1s;
       }
     }
   }
