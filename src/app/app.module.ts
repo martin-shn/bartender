@@ -17,6 +17,7 @@ import { FilterComponent } from './cmps/filter/filter.component';
 import { FormsModule } from '@angular/forms';
 import { IngPreviewComponent } from './cmps/ing-preview/ing-preview.component';
 import { UserMsgComponent } from './cmps/user-msg/user-msg.component';
+import { NaturalTypePipe } from './pipes/natural-type.pipe';
 
 const appRoutes: Routes = [
   { path: '', redirectTo:'cocktails', pathMatch:'full' },
@@ -41,7 +42,8 @@ const appRoutes: Routes = [
     FavsComponent,
     FilterComponent,
     IngPreviewComponent,
-    UserMsgComponent
+    UserMsgComponent,
+    NaturalTypePipe
   ],
   imports: [
     RouterModule.forRoot(
