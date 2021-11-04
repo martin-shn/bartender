@@ -44,6 +44,7 @@
             <div *ngFor="let ing of ingsList.controls; let idx = index" [formGroupName]="idx">
               <input
                 id="{{ 'msr' + (idx + 1) }}"
+                class="measure"
                 type="text"
                 autocomplete="off"
                 formControlName="measure"
@@ -56,13 +57,11 @@
                 minlength="3"
                 formControlName="ing"
                 placeholder="{{ 'Cocktail ingredient ' + (idx+1) }}"
-                (input)="dirtyInput($event,'ing')"
               />
             </div>
             <small *ngIf="ing.invalid && ing.touched">Ingredient is required. Minimum 3 chars.</small>
-            <!-- !isAddRowActive -->
             <button (click)="addIngRow()" 
-            [disabled]="!isAddRowActive || ing.invalid"
+            [disabled]="ing.invalid"
             >
               Add ingredient
             </button>
@@ -82,7 +81,6 @@
         </div>
       </div>
     </div>
-    <button [disabled]="form.invalid" (click)="save()">Save</button>
-    <small *ngIf="isError">Some fields are required but missing.</small>
+    <button [disabled]="form.invalid||form.pristine" (click)="save()">Save</button>
   </form>
 </section>

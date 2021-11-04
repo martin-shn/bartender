@@ -4,7 +4,7 @@
     <button [disabled]="shoppingList.length === 0" class="{{isMarkAll?'uncheck':'check'}}" [class.hidden]="isHidden" (click)="toggleAll()">{{(isMarkAll?'Un-Check':'Check')+' all'}}</button>
   </div>
   <ul *ngFor="let cocktail of shoppingList; let idxi = index">
-    <li [routerLink]="['/cocktails', cocktail.id]">{{ cocktail.name }}</li>
+    <li [routerLink]="['/cocktails', cocktail.id]">{{ name(cocktail.id) }}</li>
     <div>
       <img [src]="cocktail.imgUrl" />
       <div class="ing-list">

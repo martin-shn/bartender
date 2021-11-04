@@ -1,6 +1,9 @@
 export interface Cocktail {
-    id: string;
+    id?: string;
     name: string;
     imgUrl:string;
-    isStar:boolean;
+    isStar?:boolean;
+    ins:string;
+    ingsList:[];
+    glass:string;
 }

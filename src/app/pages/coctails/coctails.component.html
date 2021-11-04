@@ -4,5 +4,5 @@
         <a routerLink="new/edit" routerLinkActive="active"><span title="Add your own cocktail recipe"></span></a>
     </div> 
     <filter></filter>
-    <cocktails-list *ngIf="cocktails" [cocktails]="cocktails"></cocktails-list>
+    <cocktails-list *ngIf="cocktails|async" [cocktails]="cocktails|async"></cocktails-list>
 </section>

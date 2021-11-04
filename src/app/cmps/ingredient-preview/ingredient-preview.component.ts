@@ -9,7 +9,7 @@ import { UserMsgService } from 'src/app/services/user-msg.service';
 
 export class IngredientPreviewComponent implements OnInit {
 
-  @Input() ing:any
+  @Input() ing:{ing:string, measure:string}
   @Output() checkBoxClicked: EventEmitter<any> = new EventEmitter()
   constructor(private userMsgService:UserMsgService) { }
 

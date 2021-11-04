@@ -59,4 +59,5 @@ export class ShoppingListComponent implements OnInit {
     })
   }
   
+  name(cocktailId:string) {return this.cocktailService.getById(cocktailId).name}
 }

@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
 import { Cocktail } from 'src/app/models/cocktail';
 import { CocktailServiceService } from 'src/app/services/cocktail-service.service';
 
@@ -9,13 +10,16 @@ import { CocktailServiceService } from 'src/app/services/cocktail-service.servic
 })
 export class CoctailsComponent implements OnInit {
 
-  cocktails:Cocktail[]
+  // cocktails:Cocktail[]
+  cocktails:Observable<Cocktail[]>
 
   constructor(private cocktailService:CocktailServiceService) { }
 
-  ngOnInit(): void {
-    this.cocktailService.setFilter()
-    this.cocktailService.cocktails$.subscribe(cocktails=>this.cocktails=cocktails)
+  async ngOnInit(): Promise<void> {
+    const res:string = await this.cocktailService.setFilter().toPromise()
+    
+    this.cocktails = this.cocktailService.cocktails$
+    // .subscribe(cocktails=>this.cocktails=cocktails)
   }
 
 }

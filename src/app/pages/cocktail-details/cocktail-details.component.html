@@ -1,13 +1,13 @@
-<section class="cocktail-details">
+<section *ngIf="cocktail" class="cocktail-details">
   <div>
-    <img src="{{ cocktail.strDrinkThumb }}" />
+    <img src="{{ cocktail.imgUrl }}" />
   </div>
   <div class="cocktail-info">
     <div>
-      <h1>{{ cocktail.strDrink }}</h1>
+      <h1>{{ cocktail.name }}</h1>
       <a routerLink="edit" routerLinkActive="active"><span title="Edit this cocktail recipe">Edit cocktail</span></a>
   </div>
-    <p class="glass"><span></span>{{ cocktail.strGlass }}</p>
+    <p class="glass"><span></span>{{ cocktail.glass }}</p>
     <div class="ing">
       <span></span>
       <div>
@@ -16,15 +16,15 @@
           (click)="onAddToShopping($event)"
         ></button>
         <ingredient-preview
-          *ngFor="let ing of ings"
+          *ngFor="let ing of cocktail.ingsList"
           [ing]="ing"
           (checkBoxClicked)="onCheckBoxClick($event)"
-        ></ingredient-preview>
+        ><pre>{{ing}}</pre></ingredient-preview>
       </div>
     </div>
     <div class="inst">
       <span></span>
-      <p>{{ cocktail.strInstructions }}</p>
+      <p>{{ cocktail.ins }}</p>
     </div>
   </div>
 </section>

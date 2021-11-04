@@ -40,10 +40,10 @@ export class CocktailServiceService {
         localStorage.setItem('cocktailDB', JSON.stringify(cocktails));
         this.cocktails = cocktails;
         // this._cocktails$.next(this.cocktails);
-    } else {
-      this.cocktails = JSON.parse(cocktailDB);
-    }
-
+      } else {
+        this.cocktails = JSON.parse(cocktailDB);
+      }
+      
     this._loadShoppingList();
     this._cocktails$.next(this.cocktails);
   }
@@ -90,8 +90,9 @@ export class CocktailServiceService {
 
   setFilter(filter:string = this.filter){
     this.filter=filter
-    const filteredCocktails = this.cocktails.filter(cocktail=>cocktail.name.toLowerCase().includes(filter.toLowerCase()))
+    const filteredCocktails = this.cocktails?.filter(cocktail=>cocktail.name.toLowerCase().includes(filter.toLowerCase()))
     this._cocktails$.next(filteredCocktails)
+    return of('ok')
   }
 
   makeId(length=5) {

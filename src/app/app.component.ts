@@ -14,6 +14,6 @@ export class AppComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.cocktailService.loadCocktails();
+    this.cocktailService.loadCocktails()
   }
 }
