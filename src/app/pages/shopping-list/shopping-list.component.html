@@ -16,6 +16,8 @@
             (click)="onCheckBox($event, cocktail.id, idxi, idxj)"
           />
           <img 
+            style="visibility:hidden; width:0px;" 
+            onload="this.style.visibility='visible'; this.style.width='2rem'"
             title="Click to enlarge"
             [src]="'https://www.thecocktaildb.com/images/ingredients/'+ing.ing.ing+'-Small.png'"
             (click)="onIngClick($event,'https://www.thecocktaildb.com/images/ingredients/'+ing.ing.ing+'.png')"
