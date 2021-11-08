@@ -18,6 +18,7 @@
           <input
             id="name"
             type="text"
+            dir="auto"
             formControlName="cocktailName"
             autocomplete="off"
             placeholder="Cocktail name"
@@ -31,6 +32,7 @@
           <input
             id="glass"
             type="text"
+            dir="auto"
             formControlName="glass"
             autocomplete="off"
             placeholder="Cocktail glass type"
@@ -46,6 +48,7 @@
                 id="{{ 'msr' + (idx + 1) }}"
                 class="measure"
                 type="text"
+                dir="auto"
                 autocomplete="off"
                 formControlName="measure"
                 placeholder="{{ 'Cocktail measure ' + (idx + 1) }}"
@@ -53,6 +56,7 @@
               <input
                 id="{{ 'ing' + (idx+1) }}"
                 type="text"
+                dir="auto"
                 autocomplete="off"
                 minlength="3"
                 formControlName="ing"
@@ -73,6 +77,7 @@
           <textarea
             id="ins"
             rows="3"
+            dir="auto"
             formControlName="ins"
             placeholder="Instructions"
           ></textarea>
